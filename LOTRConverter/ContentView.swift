@@ -101,6 +101,9 @@ struct ContentView: View {
             }
             .padding(.horizontal, 20)
         }
+        .sheet(isPresented: $toggleViewButton, content: {
+            CurrencyInformation()
+        })
     }
 }
 
