@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct SelectCurrency: View {
+    
+    @Environment(\.dismiss) var dismissPage
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Image(.parchment)
+                .resizable()
+                .ignoresSafeArea()
+                .background(.brown)
+            VStack{
+                Text("Select the currency you are starting with:")
+                    .fontWeight(.bold)
+                
+                IconGrid(currency: .copperPenny)
+                
+                Text("Select the currency you would like to convert to:")
+                    .fontWeight(.bold)
+                
+                IconGrid(currency: .silverPenny)
+
+                
+                Button("Done"){
+                    dismissPage()
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.brown)
+                .font(.title2)
+                .padding()
+                .foregroundColor(.white)
+            }
+            .padding()
+            .multilineTextAlignment(.center)
+        }
     }
 }
 
 #Preview {
     SelectCurrency()
 }
+
